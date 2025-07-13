@@ -6,6 +6,11 @@
   <title>My Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
   <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <style>
@@ -19,6 +24,7 @@
     .text-utama {color: #DCA1A1 !important;}
     .navbar .nav-link:hover {
       background-color: #fff;
+      padding: 7px;
       border-radius: 0.375rem;
       color: #DCA1A1 !important; /* pastikan override warna Bootstrap */
 }
@@ -41,48 +47,162 @@
   border-color: #DCa1A1;
 }
 
+.skill-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.skill-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(220, 161, 161, 0.4);
+  border-color: #dcaaaa;
+}
+
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #ffffffcc;
+  border-radius: 10px;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(220, 161, 161, 0.3);
+}
+.card-title {
+  color: #333;
+}
+.card-text {
+  font-size: 0.9rem;
+}
+
+.certificate-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffffec;
+  border-radius: 10px;
+}
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(220, 161, 161, 0.2);
+}
+.badge {
+  font-size: 0.75rem;
+  padding: 0.4em 0.6em;
+  border-radius: 8px;
+}
+
+form .form-label {
+  color: #333;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  font-style: italic;
+  color: #999;
+}
+
+.blockquote {
+  font-size: 1.4rem;
+}
+
+@media (min-width: 768px) {
+  .blockquote {
+    font-size: 1.75rem;
+  }
+}
+.social-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-icon:hover {
+  transform: scale(1.2);
+  color: #dca1a1 !important;
+}
+
+.transition-hover {
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.transition-hover:hover {
+  color: #fff !important;
+}
+
+.transition-hover::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s;
+}
+
+.transition-hover:hover::after {
+  width: 100%;
+}
 
 </style>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow" style="background-color: #DCA1A1;">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm" style="background-color: #DCA1A1;">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#">My Portfolio</a>
+    <!-- Brand Logo -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+      <i class="fas fa-code me-2"></i> Anis Portfolio
+    </a>
+
+    <!-- Toggle for Mobile -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- Navbar Menu -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#aboutme">About Me</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#certificate">Certificate</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item">
+          <a class="nav-link px-3 fw-semibold transition-hover" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 fw-semibold transition-hover" href="#aboutme">About Me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 fw-semibold transition-hover" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 fw-semibold transition-hover" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 fw-semibold transition-hover" href="#certificate">Certificate</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 fw-semibold transition-hover" href="#contact">Contact</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
+
 <!-- Header -->
-<header class="text-white d-flex align-items-center" style="min-height: 100vh;">
+<header class="text-white d-flex align-items-center" style="min-height: 100vh; background: linear-gradient(135deg, #DCA1A1, #fff3f3);">
   <div class="container">
     <div class="row align-items-center">
+
       <!-- Foto di sebelah kiri -->
       <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
-        <img src="poto.jpg" alt="My Photo" class="img-fluid rounded-circle" style="max-width: 350px;">
+        <img src="poto.jpg" alt="My Photo" class="img-fluid rounded-circle shadow" style="max-width: 350px; border: 5px solid #fff;">
       </div>
+
       <!-- Teks & Tombol di sebelah kanan -->
-      <div class="col-md-6 text-center text-md-start">
-        <h1 class="display-4 fw-semibold text-utama">Hi, I am Anis Marsela👋</h1>
-        <p class="lead text-dark fw-bold">Explore my projects, skills, and experiences.</p>
-        <a href="resume.pdf" target="_blank" class="btn btn-outline-primary btn-lg mt-3">My Resume</a>
+      <div class="col-md-6 text-center text-md-start animate__animated animate__fadeInRight">
+        <h1 class="display-4 fw-bold text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">Hi, I’m Anis Marsela 👋</h1>
+        <p class="lead fw-semibold mb-4 text-dark" style="max-width: 500px;">A passionate data enthusiast — turning raw data into real business impact 💡</p>
+        <a href="https://docs.google.com/document/d/1IDqUrn9Wh4qWR8_V8l9E9glgW6ieMBJEhI7xXvLlGEc/edit?usp=sharing" target="_blank" class="btn btn-outline-primary btn-lg px-4 py-2">My Resume</a>
       </div>
+
     </div>
   </div>
 </header>
+
 
 
 <!-- About Me Section -->
@@ -90,40 +210,38 @@
   <div class="container">
 
     <!-- Judul -->
-    <h1 class="mb-5 text-center text-utama fw-bold">About Me</h2>
+    <h1 class="mb-5 text-center text-utama fw-bold" data-aos="fade-down" data-aos-duration="800">About Me</h1>
 
     <!-- Konten Tengah -->
-    <div class="row ">
-      <div class="col-lg-10 col-xl-8">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-8 bg-white shadow rounded p-4" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row">
           <!-- Deskripsi -->
-          <div class="col-md-8 mb-4">
-            <p class="lead mb-3 h2 fw-bold">Hi! I'm Anis Marsela 🐼</p>
-
-            <p class="mb-3">A Software Engineering graduate currently sharpening my data skills through Hacktiv8's full-time Data Science Bootcamp. I may come from a vocational school background, but I’ve built real-world projects from scratch — from cleaning and analyzing raw data to creating dashboards and building automated ETL pipelines.</p>
-            <p class="mb-3">I enjoy uncovering patterns from data and turning them into insights that actually support business decisions. I’m confident with Python, SQL, Tableau, and various data tools — and always excited to learn more.</p>
-            <p class="mb-0">Whether it’s analytics, modeling, or data automation, I’m ready to bring data to life.</p>
-
+          <div class="col-md-8 mb-4" data-aos="fade-right" data-aos-delay="200">
+            <p class="lead mb-3 h3 fw-bold text-utama">Hi! I'm Anis Marsela 🐼</p>
+            <p class="mb-3 text-secondary">A Software Engineering graduate currently sharpening my data skills through <strong>Hacktiv8's Data Science Bootcamp</strong>. I may come from a vocational background, but I’ve built real-world projects from scratch — from cleaning and analyzing raw data to creating dashboards and building automated ETL pipelines.</p>
+            <p class="mb-3 text-secondary">I enjoy uncovering patterns from data and turning them into insights that support real business decisions. I'm confident with <strong>Python, SQL, Tableau</strong>, and various data tools — and always excited to learn more.</p>
+            <p class="mb-0 text-secondary">Whether it’s analytics, modeling, or automation — I’m ready to bring data to life ✨</p>
           </div>
 
           <!-- Pendidikan -->
-          <div class="col-md-4">
-            <h4 class="fw-bold mb-4 text-utama text-center">Education</h4>
+          <div class="col-md-4" data-aos="fade-left" data-aos-delay="300">
+            <h4 class="fw-bold mb-4 text-utama text-center">🎓 Education</h4>
 
             <!-- SMKN 1 Pangandaran -->
-            <div class="d-flex align-items-start mb-4">
-              <img src="image/smkn1.png" alt="SMKN 1 Pangandaran" style="width: 50px; height: 50px;" class="me-3">
+            <div class="d-flex align-items-start mb-4 p-2 rounded bg-white shadow-sm" data-aos="zoom-in" data-aos-delay="400">
+              <img src="image/smkn1.png" alt="SMKN 1 Pangandaran" style="width: 50px; height: 50px;" class="me-3 rounded-circle">
               <div>
                 <h6 class="mb-1 fw-bold">SMKN 1 Pangandaran</h6>
                 <p class="mb-1">Software Engineering</p>
-                <small class="text-muted">2021 - 2021</small>
+                <small class="text-muted">2021 - 2024</small>
               </div>
             </div>
 
             <!-- Hacktiv8 -->
-            <div class="d-flex align-items-start">
-              <img src="image/hacktiv8.png" alt="Hacktiv8" style="width: 50px; height: 50px;" class="me-3">
+            <div class="d-flex align-items-start p-2 rounded bg-white shadow-sm" data-aos="zoom-in" data-aos-delay="500">
+              <img src="image/hacktiv8.png" alt="Hacktiv8" style="width: 50px; height: 50px;" class="me-3 rounded-circle">
               <div>
                 <h6 class="mb-1 fw-bold">Hacktiv8 Indonesia</h6>
                 <p class="mb-1">Data Science Bootcamp</p>
@@ -134,59 +252,105 @@
         </div> <!-- End Inner Row -->
 
       </div> <!-- End col-lg-10 -->
-    </div> <!-- End justify-content-center -->
+    </div> <!-- End row -->
 
   </div>
 </section>
+
 
 
 
 <!-- Skills Section -->
-<section class="bg-light py-5" id="skills" style="min-height: 100vh;">
+<section class="bg-white py-5" id="skills" style="min-height: 100vh;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 text-center">
-        <h2 class="mb-4 text-utama fw-bold">Skills</h2>
-        <p class="lead mb-3">I work with tools and technologies that bring data to life — from exploration to dashboarding to automation.</p>
-        <p class="mb-5">Always open to learning more, but here are some of the tools I'm currently confident with:</p>
 
-        <!-- Logo Tools Grid -->
+        <!-- Judul -->
+        <h2 class="mb-4 text-utama fw-bold" data-aos="fade-down" data-aos-duration="800">Skills</h2>
+        <p class="lead mb-3" data-aos="fade-up" data-aos-delay="100">I work with tools and technologies that bring data to life — from exploration to dashboarding to automation.</p>
+        <p class="mb-5" data-aos="fade-up" data-aos-delay="200">Always open to learning more, but here are some of the tools I'm currently confident with:</p>
+
+        <!-- Grid Tools -->
         <div class="row justify-content-center g-4">
-          <div class="col-4 col-sm-3 col-md-2">
-            <img src="image/python.png" alt="Python" class="img-fluid" style="max-height: 100px;">
+          <!-- Skill Card -->
+          <div class="col-4 col-sm-3 col-md-2" data-aos="zoom-in" data-aos-delay="100">
+            <div class="skill-box p-3 bg-light rounded shadow-sm h-100 border hover-shadow">
+              <img src="image/python.png" alt="Python" class="img-fluid mx-auto d-block" style="max-height: 80px;">
+              <p class="mt-2 small fw-bold">Python</p>
+            </div>
           </div>
-          <div class="col-4 col-sm-3 col-md-2">
-            <img src="image/tableu.png" alt="Tableau" class="img-fluid" style="max-height: 100px;">
+
+          <div class="col-4 col-sm-3 col-md-2" data-aos="zoom-in" data-aos-delay="150">
+            <div class="skill-box p-3 bg-light rounded shadow-sm h-100 border hover-shadow">
+              <img src="image/tableu.png" alt="Tableau" class="img-fluid mx-auto d-block" style="max-height: 80px;">
+              <p class="mt-2 small fw-bold">Tableau</p>
+            </div>
           </div>
-          <div class="col-4 col-sm-3 col-md-2">
-            <img src="image/pandas.png" alt="Pandas" class="img-fluid" style="max-height: 100px;">
+
+          <div class="col-4 col-sm-3 col-md-2" data-aos="zoom-in" data-aos-delay="200">
+            <div class="skill-box p-3 bg-light rounded shadow-sm h-100 border hover-shadow">
+              <img src="image/pandas.png" alt="Pandas" class="img-fluid mx-auto d-block" style="max-height: 80px;">
+              <p class="mt-2 small fw-bold">Pandas</p>
+            </div>
           </div>
-          <div class="col-4 col-sm-3 col-md-2">
-            <img src="image/seaborn.png" alt="Seaborn" class="img-fluid" style="max-height: 100px;">
+
+          <div class="col-4 col-sm-3 col-md-2" data-aos="zoom-in" data-aos-delay="250">
+            <div class="skill-box p-3 bg-light rounded shadow-sm h-100 border hover-shadow">
+              <img src="image/seaborn.png" alt="Seaborn" class="img-fluid mx-auto d-block" style="max-height: 80px;">
+              <p class="mt-2 small fw-bold">Seaborn</p>
+            </div>
           </div>
-          <div class="col-4 col-sm-3 col-md-2">
-            <img src="image/numpy.png" alt="NumPy" class="img-fluid" style="max-height: 100px;">
+
+          <div class="col-4 col-sm-3 col-md-2" data-aos="zoom-in" data-aos-delay="300">
+            <div class="skill-box p-3 bg-light rounded shadow-sm h-100 border hover-shadow">
+              <img src="image/numpy.png" alt="NumPy" class="img-fluid mx-auto d-block" style="max-height: 80px;">
+              <p class="mt-2 small fw-bold">NumPy</p>
+            </div>
           </div>
-          <div class="col-4 col-sm-3 col-md-2">
-            <img src="image/sql.png" alt="SQL" class="img-fluid" style="max-height: 100px;">
+
+          <div class="col-4 col-sm-3 col-md-2" data-aos="zoom-in" data-aos-delay="350">
+            <div class="skill-box p-3 bg-light rounded shadow-sm h-100 border hover-shadow">
+              <img src="image/sql.png" alt="SQL" class="img-fluid mx-auto d-block" style="max-height: 80px;">
+              <p class="mt-2 small fw-bold">SQL</p>
+            </div>
           </div>
-          <div class="col-4 col-sm-3 col-md-2">
-            <img src="image/docker.png" alt="Docker" class="img-fluid" style="max-height: 100px;">
+
+          <div class="col-4 col-sm-3 col-md-2" data-aos="zoom-in" data-aos-delay="400">
+            <div class="skill-box p-3 bg-light rounded shadow-sm h-100 border hover-shadow">
+              <img src="image/docker.png" alt="Docker" class="img-fluid mx-auto d-block" style="max-height: 80px;">
+              <p class="mt-2 small fw-bold">Docker</p>
+            </div>
           </div>
-          <div class="col-4 col-sm-3 col-md-2">
-            <img src="image/scikit_learn.png" alt="Scikit-Learn" class="img-fluid" style="max-height: 100px;">
+
+          <div class="col-4 col-sm-3 col-md-2" data-aos="zoom-in" data-aos-delay="450">
+            <div class="skill-box p-3 bg-light rounded shadow-sm h-100 border hover-shadow">
+              <img src="image/scikit_learn.png" alt="Scikit-Learn" class="img-fluid mx-auto d-block" style="max-height: 80px;">
+              <p class="mt-2 small fw-bold">Scikit-Learn</p>
+            </div>
           </div>
-          <div class="col-4 col-sm-3 col-md-2">
-            <img src="image/hugging_face.png" alt="Hugging Face" class="img-fluid" style="max-height: 100px;">
+
+          <div class="col-4 col-sm-3 col-md-2" data-aos="zoom-in" data-aos-delay="500">
+            <div class="skill-box p-3 bg-light rounded shadow-sm h-100 border hover-shadow">
+              <img src="image/hugging_face.png" alt="Hugging Face" class="img-fluid mx-auto d-block" style="max-height: 80px;">
+              <p class="mt-2 small fw-bold">Hugging Face</p>
+            </div>
           </div>
-          <div class="col-4 col-sm-3 col-md-2">
-            <img src="image/github.png" alt="GitHub" class="img-fluid" style="max-height: 100px;">
+
+          <div class="col-4 col-sm-3 col-md-2" data-aos="zoom-in" data-aos-delay="550">
+            <div class="skill-box p-3 bg-light rounded shadow-sm h-100 border hover-shadow">
+              <img src="image/github.png" alt="GitHub" class="img-fluid mx-auto d-block" style="max-height: 80px;">
+              <p class="mt-2 small fw-bold">GitHub</p>
+            </div>
           </div>
-        </div>
+        </div> <!-- End Grid -->
+
       </div>
     </div>
   </div>
 </section>
+
+
 
 
 <!-- Projects Section -->
@@ -198,115 +362,126 @@
     </div>
 
     <div class="row g-4">
-      <!-- Project Card 1 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <img src="image/proyek-hotel.png" class="card-img-top object-fit-cover" style="height: 200px;" alt="Hotel Booking Demand">
+      <!-- Reusable Project Card Template -->
+      <!-- Repeat this block for each project -->
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up">
+        <div class="card h-100 shadow-sm border-0 project-card">
+          <div class="overflow-hidden">
+            <img src="image/proyek-hotel.png" class="card-img-top object-fit-cover" style="height: 200px;" alt="Hotel Booking Demand">
+          </div>
           <div class="card-body text-center">
-            <h5 class="card-title">Hotel Booking Demand</h5>
-            <p class="card-text">Exploratory analysis of hotel booking patterns, with dashboards built using Tableau.</p>
+            <h5 class="card-title fw-semibold">Hotel Booking Demand</h5>
+            <p class="card-text small text-muted">Exploratory analysis of booking patterns with interactive Tableau dashboards for insights.</p>
             <a href="https://github.com/AnisMarsela32/hotel-booking-analysis" target="_blank" class="btn btn-outline-primary btn-sm mt-2">View Project</a>
           </div>
         </div>
       </div>
 
-      <!-- Project Card 2 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <img src="image/proyek-bank.png" class="card-img-top object-fit-cover" style="height: 200px;" alt="Bank Marketing Prediction">
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 shadow-sm border-0 project-card">
+          <div class="overflow-hidden">
+            <img src="image/proyek-bank.png" class="card-img-top object-fit-cover" style="height: 200px;" alt="Bank Marketing">
+          </div>
           <div class="card-body text-center">
-            <h5 class="card-title">Bank Marketing Prediction</h5>
-            <p class="card-text">Used classification models to predict customer conversion from marketing campaigns.</p>
+            <h5 class="card-title fw-semibold">Bank Marketing Prediction</h5>
+            <p class="card-text small text-muted">Built ML model to predict which customers are likely to subscribe using campaign data.</p>
             <a href="https://github.com/AnisMarsela32/bank-marketing-prediction" target="_blank" class="btn btn-outline-primary btn-sm mt-2">View Project</a>
           </div>
         </div>
       </div>
 
-      <!-- Project Card 3 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <img src="image/proyek-superstore.png" class="card-img-top object-fit-cover" style="height: 200px;" alt="Global Superstore">
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 shadow-sm border-0 project-card">
+          <div class="overflow-hidden">
+            <img src="image/proyek-superstore.png" class="card-img-top object-fit-cover" style="height: 200px;" alt="Global Superstore">
+          </div>
           <div class="card-body text-center">
-            <h5 class="card-title">Global Superstore Sales</h5>
-            <p class="card-text">Built automated ETL & visualizations using ElasticSearch and Kibana to monitor global retail KPIs.</p>
+            <h5 class="card-title fw-semibold">Global Superstore Sales</h5>
+            <p class="card-text small text-muted">Automated ETL + KPI visualization with ElasticSearch and Kibana dashboarding.</p>
             <a href="https://github.com/AnisMarsela32/global-superstore-analyst" target="_blank" class="btn btn-outline-primary btn-sm mt-2">View Project</a>
           </div>
         </div>
       </div>
 
-      <!-- Project Card 4 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <img src="image/proyek-face.png" class="card-img-top object-fit-cover" style="height: 200px;" alt="Face Mask Detection">
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up">
+        <div class="card h-100 shadow-sm border-0 project-card">
+          <div class="overflow-hidden">
+            <img src="image/proyek-face.png" class="card-img-top object-fit-cover" style="height: 200px;" alt="Face Mask Detection">
+          </div>
           <div class="card-body text-center">
-            <h5 class="card-title">Face Mask Detection</h5>
-            <p class="card-text">Real-time face mask classification using CNN and OpenCV for computer vision tasks.</p>
+            <h5 class="card-title fw-semibold">Face Mask Detection</h5>
+            <p class="card-text small text-muted">Computer vision model using CNN + OpenCV to detect mask-wearing in real-time.</p>
             <a href="https://github.com/AnisMarsela32/face-mask-detection" target="_blank" class="btn btn-outline-primary btn-sm mt-2">View Project</a>
           </div>
         </div>
       </div>
 
-      <!-- Project Card 5 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <img src="image/proyek-emosi.png" class="card-img-top object-fit-cover" style="height: 200px;" alt="Emotion Classification">
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 shadow-sm border-0 project-card">
+          <div class="overflow-hidden">
+            <img src="image/proyek-emosi.png" class="card-img-top object-fit-cover" style="height: 200px;" alt="Emotion Classification">
+          </div>
           <div class="card-body text-center">
-            <h5 class="card-title">Emotion Classification</h5>
-            <p class="card-text">Used LSTM to classify 6 emotion categories in Indonesian text datasets (NLP-based).</p>
+            <h5 class="card-title fw-semibold">Emotion Classification</h5>
+            <p class="card-text small text-muted">Classified emotions in Indonesian tweets using deep learning (LSTM).</p>
             <a href="https://github.com/AnisMarsela32/klasifikasi-emosi-nlp" target="_blank" class="btn btn-outline-primary btn-sm mt-2">View Project</a>
           </div>
         </div>
       </div>
 
-      <!-- Project Card 6 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <img src="image/final-proyek.jpg" class="card-img-top object-fit-cover" style="height: 200px;" alt="Final Project">
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 shadow-sm border-0 project-card">
+          <div class="overflow-hidden">
+            <img src="image/final-proyek.jpg" class="card-img-top object-fit-cover" style="height: 200px;" alt="Final Project">
+          </div>
           <div class="card-body text-center">
-            <h5 class="card-title">[Final Project Title]</h5>
-            <p class="card-text">Description coming soon...</p>
-            <a href="#" target="_blank" class="btn btn-outline-primary btn-sm mt-2">View Project</a>
+            <h5 class="card-title fw-semibold">[Final Project Title]</h5>
+            <p class="card-text small text-muted">Coming soon — stay tuned for my final project!</p>
+            <a href="#" class="btn btn-outline-primary btn-sm mt-2 disabled">Coming Soon</a>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 
-
-
 <!-- Certificate Section -->
-<section class="bg-light py-5" id="certificate" style="min-height: 100vh;">
+<section class="bg-white py-5" id="certificate" style="min-height: 100vh;">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="text-utama fw-bold">Certificates</h2>
-      <p class="lead">Here are some certifications I've earned to strengthen my skills in data science and analysis.</p>
+      <p class="lead">A glimpse into my credentials — officially certified and bootcamp-tested skills.</p>
     </div>
 
     <div class="row justify-content-center g-4">
       
       <!-- Sertifikat BNSP -->
-      <div class="col-md-6 col-lg-5">
-        <div class="card h-100 shadow-sm text-center">
-          <img src="image/bnsp.jpg" class="card-img-top img-fluid" alt="BNSP Certificate" style="max-height: 300px; object-fit: contain;">
+      <div class="col-md-6 col-lg-5" data-aos="zoom-in">
+        <div class="card h-100 shadow-sm border-0 certificate-card text-center">
+          <div class="position-relative">
+            <img src="image/bnsp.jpg" class="card-img-top img-fluid" alt="BNSP Certificate" style="max-height: 300px; object-fit: contain;">
+            <span class="badge bg-success position-absolute top-0 start-0 m-2">Verified</span>
+          </div>
           <div class="card-body">
             <h5 class="card-title fw-bold">BNSP Certification</h5>
-            <p class="card-text">Professional competency certificate from BNSP, officially recognized by the Indonesian government.</p>
-            <a href="certificates/bnsp.pdf" target="_blank" class="btn btn-outline-primary">View Certificate</a>
+            <p class="card-text small text-muted">Professional certification by the Indonesian government through BNSP — validating core competencies in the field.</p>
+            <a href="https://drive.google.com/drive/folders/1Jq3BJiaazyhFG4fLCxViQsh0wxW_P0iG?usp=drive_link" target="_blank" class="btn btn-outline-primary btn-sm mt-2">View Certificate</a>
           </div>
         </div>
       </div>
 
       <!-- Sertifikat Hacktiv8 -->
-      <div class="col-md-6 col-lg-5">
-        <div class="card h-100 shadow-sm text-center">
-          <img src="image/h8.jpg" class="card-img-top img-fluid" alt="Hacktiv8 Certificate" style="max-height: 300px; object-fit: contain;">
+      <div class="col-md-6 col-lg-5" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card h-100 shadow-sm border-0 certificate-card text-center">
+          <div class="position-relative">
+            <img src="image/h8.jpg" class="card-img-top img-fluid" alt="Hacktiv8 Certificate" style="max-height: 300px; object-fit: contain;">
+            <span class="badge bg-info position-absolute top-0 start-0 m-2">Bootcamp</span>
+          </div>
           <div class="card-body">
             <h5 class="card-title fw-bold">Hacktiv8 Data Science Bootcamp</h5>
-            <p class="card-text">Certificate of completion for full-time data science bootcamp with hands-on projects and real-world challenges.</p>
-            <a href="certificates/hacktiv8.pdf" target="_blank" class="btn btn-outline-primary">View Certificate</a>
+            <p class="card-text small text-muted">Completed full-time Data Science Bootcamp — mastering real-world projects, from EDA to ML & deployment.</p>
+            <a href="certificates/hacktiv8.pdf" target="_blank" class="btn btn-outline-primary btn-sm mt-2">View Certificate</a>
           </div>
         </div>
       </div>
@@ -315,87 +490,129 @@
   </div>
 </section>
 
+
 <!-- Contact Section -->
-<section id="contact" class="py-5 bg-white" style="min-height: 100vh;">
+<section id="contact" class="py-5 bg-light" style="min-height: 100vh;">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="text-utama fw-bold">Contact Me</h2>
-      <p class="lead">Interested in working together? Have a question or just want to say hi?</p>
-      <p>Feel free to reach out via the form below or through my social channels.</p>
+      <p class="lead">Let's collaborate, connect, or simply have a chat!</p>
+      <p class="text-muted">Use the form below or reach out via my social channels — I'm just a message away 👇</p>
     </div>
 
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <form action="https://formspree.io/f/xnnzaneo" method="POST">
-          
-          <div class="mb-3">
-            <label for="name" class="form-label">Your Name</label>
-            <input type="text" class="form-control" id="name" name="name" required>
-          </div>
+    <div class="row align-items-center justify-content-center g-5">
 
-          <div class="mb-3">
-            <label for="email" class="form-label">Your Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="subject" class="form-label">Subject</label>
-            <input type="text" class="form-control" id="subject" name="subject" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="message" class="form-label">Your Message</label>
-            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-          </div>
-
-          <div class="text-center">
-            <button type="submit" class="btn btn-outline-primary px-5">Send Message</button>
-          </div>
-
-        </form>
+      <!-- Ilustrasi Kontak -->
+      <div class="col-lg-5 d-none d-lg-block" data-aos="fade-right">
+        <img src="image/contact_us.png" alt="Contact Illustration" class="img-fluid" style="max-height: 1000px; width: 1000px;">
       </div>
+
+      <!-- Form Kontak -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="p-4 bg-white rounded shadow-sm">
+          <form action="https://formspree.io/f/xnnzaneo" method="POST">
+            <div class="mb-3">
+              <label for="name" class="form-label fw-semibold">Your Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="e.g. Anis Marsela" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label fw-semibold">Your Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="e.g. anis@email.com" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="subject" class="form-label fw-semibold">Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject" placeholder="Let's work together!" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="message" class="form-label fw-semibold">Your Message</label>
+              <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell me what’s on your mind..." required></textarea>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-outline-primary px-5">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
 
 
 
 <!-- Quote Section -->
-<section class="bg-dark text-white text-center py-5">
-  <div class="container">
-    <h2 class="mb-3">"Data may speak, but insight tells the story."</h2>
-    <p class="lead fst-italic">— Anis Marsela</p>
+<section class="bg-dark text-white py-5" style="position: relative; overflow: hidden;">
+  <div class="container text-center" data-aos="zoom-in">
+    <!-- Icon Dekoratif -->
+    <div class="mb-4">
+      <i class="fas fa-quote-left fa-2x text-secondary"></i>
+    </div>
+
+    <!-- Teks Quote -->
+    <blockquote class="blockquote">
+      <h2 class="mb-3 fw-bold fst-italic px-3 px-md-5">
+        “Data may speak, but insight tells the story.”
+      </h2>
+      <footer class="blockquote-footer text-white-50 mt-3">
+        <cite title="Source Title">— Anis Marsela</cite>
+      </footer>
+    </blockquote>
+
+    <!-- Garis tipis -->
+    <hr class="mt-5 mx-auto" style="width: 60px; border-top: 3px solid #dc1a1a;">
+  </div>
+
+  <!-- Background Ornamen (Opsional) -->
+  <div style="position: absolute; top: -20px; right: -20px; opacity: 0.05; font-size: 150px; pointer-events: none;">
+    📊
   </div>
 </section>
 
 
+
 <!-- Footer -->
-<footer class="bg-light text-center py-4">
+<footer class="bg-light text-center py-5 position-relative">
   <div class="container">
+    <!-- Garis Divider -->
+    <hr class="mb-4" style="width: 60px; border-top: 3px solid #dc1a1a; margin: auto;">
+
     <!-- Social Media Icons -->
-    <div class="mb-3">
-      <a href="https://www.linkedin.com/in/anis-marsela-348727301/" target="_blank" class="text-dark me-3" aria-label="LinkedIn">
-        <i class="fab fa-linkedin fa-lg"></i>
+    <div class="mb-4 mt-4">
+      <a href="https://www.linkedin.com/in/anis-marsela-348727301/" target="_blank" class="text-dark mx-2 social-icon" aria-label="LinkedIn">
+        <i class="fab fa-linkedin fa-2x"></i>
       </a>
-      <a href="https://public.tableau.com/app/profile/anis.marsela2969/vizzes" target="_blank" class="text-dark me-3" aria-label="Tableau">
-        <i class="fas fa-chart-bar fa-lg"></i>
+      <a href="https://public.tableau.com/app/profile/anis.marsela2969/vizzes" target="_blank" class="text-dark mx-2 social-icon" aria-label="Tableau">
+        <i class="fas fa-chart-bar fa-2x"></i>
       </a>
-      <a href="https://github.com/AnisMarsela32" target="_blank" class="text-dark me-3" aria-label="GitHub">
-        <i class="fab fa-github fa-lg"></i>
+      <a href="https://github.com/AnisMarsela32" target="_blank" class="text-dark mx-2 social-icon" aria-label="GitHub">
+        <i class="fab fa-github fa-2x"></i>
       </a>
-      <a href="mailto:anismarsela36854@gmail.com" class="text-dark me-3" aria-label="Email">
-        <i class="fas fa-envelope fa-lg"></i>
+      <a href="mailto:anismarsela36854@gmail.com" class="text-dark mx-2 social-icon" aria-label="Email">
+        <i class="fas fa-envelope fa-2x"></i>
       </a>
-      <a href="https://instagram.com/anis_marsela20" target="_blank" class="text-dark" aria-label="Instagram">
-        <i class="fab fa-instagram fa-lg"></i>
+      <a href="https://instagram.com/anis_marsela20" target="_blank" class="text-dark mx-2 social-icon" aria-label="Instagram">
+        <i class="fab fa-instagram fa-2x"></i>
       </a>
     </div>
 
-    <!-- Copyright -->
-    <p class="mb-0">© 2025 Anis Marsela — Built with ❤️ &amp; <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+    <!-- Credit -->
+    <p class="mb-0 small text-muted">
+      © 2025 <strong class="text-utama">Anis Marsela</strong> — Built with <span style="color: #dc1a1a;">❤️</span> & 
+      <a href="https://getbootstrap.com/" target="_blank" class="text-decoration-none text-utama fw-bold">Bootstrap</a>
+    </p>
   </div>
 </footer>
 
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 
 <!-- Bootstrap Script -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
